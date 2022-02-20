@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">TipCalculator</string>
+    <string name="bill_amount">French</string>
+    <string name="tip_percent">French</string>
+    <string name="tip_amount">French</string>
+    <string name="total_amount">French</string>
+    <string name="number_of_people">French</string>
+</resources>
