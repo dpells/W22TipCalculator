@@ -9,13 +9,14 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.RadioGroup;
+import android.widget.SeekBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import java.text.NumberFormat;
 
 public class MainActivity extends AppCompatActivity
-        implements View.OnClickListener, TextWatcher {
+        implements View.OnClickListener, TextWatcher, SeekBar.OnSeekBarChangeListener {
 
     private float tipPercent = 0.2f;
     Button minusButton, plusButton;
@@ -24,6 +25,7 @@ public class MainActivity extends AppCompatActivity
     final private NumberFormat currencyFormat = NumberFormat.getCurrencyInstance();
     EditText billAmountEditText;
     RadioGroup numPeopleRadioGroup;
+    SeekBar tipPercentSB;
     int numPeople;
 
     @Override
@@ -48,11 +50,14 @@ public class MainActivity extends AppCompatActivity
         tipPercentTextView = findViewById(R.id.tipPercentTextView);
         billAmountEditText = findViewById(R.id.billAmountEditText);
         numPeopleRadioGroup = findViewById(R.id.numPeopleRadioGroup);
+            //SeekBar
+        tipPercentSB = findViewById(R.id.tipPercentSeekBar);
 
         // set click listeners
         minusButton.setOnClickListener(this);
         plusButton.setOnClickListener(this);
         billAmountEditText.addTextChangedListener(this);
+        tipPercentSB.setOnSeekBarChangeListener(this);
 
         // set up defaults
         tipPercentTextView.setText(percentFormat.format(tipPercent));
@@ -116,9 +121,13 @@ public class MainActivity extends AppCompatActivity
         long id = view.getId();
         if(id == R.id.decreaseButton){
             tipPercent -= 0.05f;
+            if(tipPercent < 0)
+                tipPercent = 0;
         }
         else if(id == R.id.increaseButton){
             tipPercent += 0.05f;
+            if(tipPercent > 1)
+                tipPercent = 1;
         }
         updateScreen();
     }
@@ -140,6 +149,7 @@ public class MainActivity extends AppCompatActivity
     }
 
     private void updateScreen(){
+        tipPercentSB.setProgress((int)(tipPercent*100));
         String billAmountString = billAmountEditText.getText().toString();
         float billAmount = 0f;
         try{
@@ -176,4 +186,21 @@ public class MainActivity extends AppCompatActivity
         float individualAmount = totalAmount / numPeople;
     }
 
+    @Override
+    public void onProgressChanged(SeekBar seekBar, int progress, boolean userUpdate) {
+        if(userUpdate){
+            tipPercent = progress / 100f;
+            updateScreen();
+        }
+    }
+
+    @Override
+    public void onStartTrackingTouch(SeekBar seekBar) {
+        // no work to be done
+    }
+
+    @Override
+    public void onStopTrackingTouch(SeekBar seekBar) {
+        // no work to be done
+    }
 }

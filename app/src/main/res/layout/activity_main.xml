@@ -58,7 +58,7 @@
             <SeekBar
                 android:id="@+id/tipPercentSeekBar"
                 android:layout_span="4"
-                ste
+                android:max="100"
                 android:progress="20" />
         </TableRow>
 
