@@ -156,7 +156,7 @@ public class MainActivity extends AppCompatActivity
             billAmount = Float.parseFloat(billAmountString);
         }
         catch(Exception ex){
-            // default to 0
+            billAmount = 0;
         }
 
         tipPercentTextView.setText(percentFormat.format(tipPercent));
@@ -165,7 +165,9 @@ public class MainActivity extends AppCompatActivity
         TextView tipAmountTextView = findViewById(R.id.tipAmountTextView);
         tipAmountTextView.setText(currencyFormat.format(tipAmount));
 
-        float totalAmount = 0;
+        float totalAmount = billAmount + tipAmount;
+        TextView totalAmountTextView = findViewById(R.id.totalAmountTextView);
+        totalAmountTextView.setText(currencyFormat.format(totalAmount));
 
         long checkedId = numPeopleRadioGroup.getCheckedRadioButtonId();
         int numPeople;
@@ -184,6 +186,8 @@ public class MainActivity extends AppCompatActivity
         }
 
         float individualAmount = totalAmount / numPeople;
+        TextView individualAmountTextView= findViewById(R.id.individualAmountTextView);
+        individualAmountTextView.setText(currencyFormat.format(individualAmount));
     }
 
     @Override

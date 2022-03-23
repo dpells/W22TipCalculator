@@ -14,17 +14,39 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
 
-            <TextView
+            <!--<TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:baselineAligned="false"
                 android:onClick="easterEgg"
-                android:text="@string/bill_amount" />
-            <EditText
+                android:text="@string/bill_amount"
+                android:labelFor="@id/billAmountEditText"
+                style="@style/DavidsWordThingStyle"/>-->
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:layout_span="4"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Bill Amount">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/billAmountEditText"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:inputType="numberDecimal"
+                    android:focusable="true"
+                    android:selectAllOnFocus="true"
+                    android:ems="10" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <!--<EditText
                 android:id="@+id/billAmountEditText"
-                android:ems="10"
                 android:layout_span="3"
+                android:ems="10"
                 android:hint="Enter your bill here"
-                android:inputType="numberDecimal"/>
+                android:inputType="numberDecimal"
+                android:focusable="true"
+                android:selectAllOnFocus="true"/>-->
         </TableRow>
 
         <TableRow
@@ -34,19 +56,21 @@
             <TextView
                 android:layout_height="wrap_content"
                 android:layout_width="wrap_content"
-                android:text="@string/tip_percent"/>
+                android:text="@string/tip_percent"
+                style="@style/DavidsWordThingStyle"/>
             <Button
                 android:id="@+id/decreaseButton"
-                android:layout_width="wrap_content"
+                android:layout_width="@dimen/button_width"
                 android:layout_height="wrap_content"
-                android:text="@string/minus_sign" />
+                android:text="@string/minus_sign"
+                style="@style/NewButtonStyle"/>
             <TextView
                 android:layout_height="wrap_content"
                 android:layout_width="wrap_content"
                 android:id="@+id/tipPercentTextView"/>
             <Button
                 android:id="@+id/increaseButton"
-                android:layout_width="wrap_content"
+                android:layout_width="@dimen/button_width"
                 android:layout_height="wrap_content"
                 android:text="@string/plus_sign" />
         </TableRow>
@@ -69,7 +93,8 @@
             <TextView
                 android:layout_height="wrap_content"
                 android:layout_width="wrap_content"
-                android:text="@string/tip_amount"/>
+                android:text="@string/tip_amount"
+                style="@style/DavidsWordThingStyle"/>
             <TextView
                 android:layout_height="wrap_content"
                 android:layout_width="wrap_content"
@@ -83,8 +108,7 @@
 
             <TextView
                 android:layout_height="wrap_content"
-                android:layout_width="wrap_content"
-                android:text="@string/total_amount"/>
+                android:layout_width="wrap_content"/>
             <TextView
                 android:layout_height="wrap_content"
                 android:layout_width="wrap_content"
@@ -94,35 +118,39 @@
 
         <TableRow
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="match_parent">
 
             <TextView
-                android:layout_height="wrap_content"
                 android:layout_width="wrap_content"
-                android:text="@string/number_of_people"/>
+                android:layout_height="wrap_content"
+                android:text="@string/number_of_people"
+                style="@style/DavidsWordThingStyle"/>
 
             <RadioGroup
                 android:id="@+id/numPeopleRadioGroup"
-                android:layout_height="wrap_content"
                 android:layout_width="match_parent"
-                android:checkedButton="@id/twoPeopleRadioButton"
-                android:layout_span="3">
+                android:layout_height="wrap_content"
+                android:layout_span="3"
+                android:checkedButton="@id/twoPeopleRadioButton">
 
                 <RadioButton
                     android:id="@+id/onePersonRadioButton"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="1 Person" />
+
                 <RadioButton
                     android:id="@+id/twoPeopleRadioButton"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="2 People" />
+
                 <RadioButton
                     android:id="@+id/threePeopleRadioButton"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="3 People" />
+
                 <RadioButton
                     android:id="@+id/fourPeopleRadioButton"
                     android:layout_width="match_parent"
@@ -139,7 +167,8 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Individual Amount" />
+                android:text="Individual Amount"
+                style="@style/DavidsWordThingStyle"/>
             <TextView
                 android:layout_height="wrap_content"
                 android:layout_width="wrap_content"
