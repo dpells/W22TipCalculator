@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <SwitchPreference
+        android:defaultValue="false"
+        android:key="save_values_pref"
+        android:title="Save Values" />
+
+    <ListPreference
+        android:dialogTitle="Select Rounding"
+        android:entries="@array/rounding_keys"
+        android:entryValues="@array/rounding_values"
+        android:key="rounding_pref"
+        android:summary="Select total amount or tip amount rounding"
+        android:title="Select Rounding"/>
+</PreferenceScreen>

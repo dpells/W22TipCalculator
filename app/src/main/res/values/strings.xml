@@ -7,4 +7,20 @@
     <string name="tip_amount">Tip Amount</string>
     <string name="total_amount">Total Amount</string>
     <string name="number_of_people">Number of People</string>
+
+    <string name="no_round" translatable="false">0</string>
+    <string name="round_total" translatable="false">1</string>
+    <string name="round_tip" translatable="false">2</string>
+
+    <string-array name="rounding_values">
+        <item>@string/no_round</item>
+        <item>@string/round_total</item>
+        <item>@string/round_tip</item>
+    </string-array>
+
+    <string-array name="rounding_keys">
+        <item>No Rounding</item>
+        <item>Round Total</item>
+        <item>Round Tip</item>
+    </string-array>
 </resources>

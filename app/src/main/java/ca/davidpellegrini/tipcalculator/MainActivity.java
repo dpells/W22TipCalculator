@@ -1,10 +1,14 @@
 package ca.davidpellegrini.tipcalculator;
 
 import androidx.appcompat.app.AppCompatActivity;
+
+import android.content.Intent;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.util.Log;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -111,14 +115,45 @@ public class MainActivity extends AppCompatActivity
         */
     }
 
+    public boolean onCreateOptionsMenu(Menu menu){
+        getMenuInflater().inflate(R.menu.options_menu, menu);
+        return true;
+    }
+
+    public boolean onOptionsItemSelected(MenuItem item){
+        long id = item.getItemId();
+        if(id == R.id.settings_menu){
+            Intent settings = new Intent(getApplicationContext(), SettingsActivity.class);
+            startActivity(settings);
+            return true;
+        }
+        else if(id == R.id.about_menu){
+            //startActivity(new Intent(getApplicationContext(), AboutActivity.class));
+            return true;
+        }
+        else{
+            return super.onOptionsItemSelected(item);
+        }
+    }
+
     // this method is being used through the activity_main.xml file
-    public void easterEgg(View view) {
-        Toast.makeText(this, "Surprise!", Toast.LENGTH_SHORT).show();
+
+    /**
+     *
+     * @param view
+     * @return
+     */
+    public String easterEgg(View view) {
+        Toast.makeText(
+                this, "Surprise!", Toast.LENGTH_SHORT)
+            .show();
+        return "1";
     }
 
     @Override
     public void onClick(View view) {
         long id = view.getId();
+
         if(id == R.id.decreaseButton){
             tipPercent -= 0.05f;
             if(tipPercent < 0)
