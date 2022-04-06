@@ -8,9 +8,10 @@
 
     <ListPreference
         android:dialogTitle="Select Rounding"
+        android:defaultValue="@string/no_round"
         android:entries="@array/rounding_keys"
         android:entryValues="@array/rounding_values"
         android:key="rounding_pref"
         android:summary="Select total amount or tip amount rounding"
-        android:title="Select Rounding"/>
+        android:title="Select Rounding" />
 </PreferenceScreen>
